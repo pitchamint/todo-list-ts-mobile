@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Todo List (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+แอป Todo List แบบง่าย พัฒนาด้วย React, TypeScript และ Vite
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20+ (แนะนำใช้ LTS)
+- npm 10+
 
-## React Compiler
+## Install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Run บนคอมพิวเตอร์ (Local)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+จากนั้นเปิด:
+
+- [http://localhost:5173](http://localhost:5173)
+
+## Run ผ่านมือถือ (วง Wi-Fi เดียวกัน)
+
+1. ให้มือถือและคอมพิวเตอร์เชื่อมต่อ Wi-Fi เดียวกัน
+2. รัน dev server แบบเปิดให้เครื่องอื่นในวงแลนเข้าถึง:
+
+```bash
+npm run dev -- --host 0.0.0.0 --port 5173
+```
+
+3. หา IP ของเครื่องคอมพิวเตอร์
+
+macOS:
+
+```bash
+ipconfig getifaddr en0
+```
+
+4. เปิดเบราว์เซอร์บนมือถือ แล้วเข้า URL:
+
+```text
+http://<YOUR_LOCAL_IP>:5173
+```
+
+ตัวอย่าง:
+
+```text
+http://192.168.1.15:5173
+```
+
+### ถ้าเปิดจากมือถือไม่ได้
+
+- ตรวจสอบว่าอยู่ Wi-Fi เดียวกันจริง
+- ปิด VPN ชั่วคราวทั้งบนมือถือและคอม
+- อนุญาต firewall ให้ `node` รับ connection ขาเข้า
+- ลองเปลี่ยนพอร์ต เช่น `--port 4173` แล้วเข้า `http://<IP>:4173`
+
+## Test
+
+```bash
+npm test
+```
+
+## Build Production
+
+```bash
+npm run build
+npm run preview
 ```
