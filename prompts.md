@@ -8,6 +8,7 @@
 4. `ขอ command เพิ่ม repo เข้า github`
 5. `เขียนวิธี run app โดยให้สามารถ run ผ่าน mobile ได้ ใน readme.md`
 6. `สร้าง prompts.md โดยเอาข้อมูลที่ได้จากการ promp history ไปใส่`
+7. `ต่อจากนี้ ถ้ามีการ promp ให้เอาไปใส่ไว้ใน prompts.md ให้ด้วย พร้อมกับเพิ่ม git ignor ไฟล์นี้ด้วย`
 
 ## Context ย่อของแต่ละ prompt
 
@@ -16,3 +17,4 @@
 - Prompt 4: ขอคำสั่งสำหรับสร้าง GitHub repository และ push โค้ด
 - Prompt 5: เพิ่มคู่มือรันแอปบนมือถือใน `README.md`
 - Prompt 6: สร้างไฟล์นี้เพื่อบันทึก prompt history
+- Prompt 7: ขอให้บันทึก prompt ต่อเนื่องใน `prompts.md` และ ignore ไฟล์นี้ใน git
